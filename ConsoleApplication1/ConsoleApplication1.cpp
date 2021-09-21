@@ -9,6 +9,10 @@ int main()
 
 	Matrix <int> matrix(size);
 	matrix.Print();
+	Matrix <float> matrixx(size);
+	matrixx.Print();
+	Matrix <double> matrixxx(size);
+	matrixxx.Print();
     std::cout << "Hello World!\n";
 }
 

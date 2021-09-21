@@ -1,6 +1,8 @@
 #ifndef MATRIX_H
 #define MATRIX_H
 
+#include "Random.h"
+
 template <class T>
 class Matrix
 {

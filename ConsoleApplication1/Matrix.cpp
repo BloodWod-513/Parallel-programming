@@ -9,9 +9,6 @@ template class Matrix<double>;
 template <typename T>
 Matrix<T>::Matrix(int size)
 {
-	std::random_device rd;
-	std::mt19937 generator(rd());
-	std::uniform_real_distribution<float> dis(0.0f, 100.0f);
 	this->size = size;
 	matrix = new T* [size];
 
@@ -21,7 +18,7 @@ Matrix<T>::Matrix(int size)
 	for (int i = 0; i < size; i++)
 	{
 		for (int j = 0; j < size; j++)
-			matrix[i][j] = dis(generator);
+			matrix[i][j] = GetRand(0.f, 100.f);
 	}
 }
 

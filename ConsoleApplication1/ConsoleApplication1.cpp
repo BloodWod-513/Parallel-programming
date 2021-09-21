@@ -10,13 +10,19 @@ int main()
 
 	Matrix <int> matrix(size);
 	matrix.Print("matrix one");
-	matrix.GetValue(2, 3);
+	matrix.GetValue(2, 2);
 	matrix.SetValue(2, 2, 333);
 	matrix.Print();
 	Matrix <float> matrix_f(size);
 	matrix_f.Print();
 	Matrix <double> matrix_d(size);
 	matrix_d.Print();
+	Matrix <int> matrixTest(size);
+	matrixTest.Print();
+	matrixTest = matrix;
+	matrixTest.Print();
+	Matrix <int> test = matrix;
+	test.Print();
 
 	Vector <int> vector(size);
 	vector.Print();

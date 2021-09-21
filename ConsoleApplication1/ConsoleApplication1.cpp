@@ -1,5 +1,6 @@
 ﻿#include <iostream>
 #include "Matrix.h"
+#include "Vector.h"
 using namespace std;
 
 int main()
@@ -9,10 +10,17 @@ int main()
 
 	Matrix <int> matrix(size);
 	matrix.Print();
-	Matrix <float> matrixx(size);
-	matrixx.Print();
-	Matrix <double> matrixxx(size);
-	matrixxx.Print();
+	Matrix <float> matrix_f(size);
+	matrix_f.Print();
+	Matrix <double> matrix_d(size);
+	matrix_d.Print();
+
+	Vector <int> vector(size);
+	vector.Print();
+	Vector <float> vector_f(size);
+	vector_f.Print();
+	Vector <double> vector_d(size);
+	vector_d.Print();
     std::cout << "Hello World!\n";
 }
 

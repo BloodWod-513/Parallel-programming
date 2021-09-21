@@ -3,7 +3,7 @@
 #include <iostream>
 #include <random>
 
-template<class T>
+template <class T>
 using uniform_distribution =
 typename std::conditional<
 	std::is_floating_point<T>::value,

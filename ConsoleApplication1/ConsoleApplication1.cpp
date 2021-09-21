@@ -1,10 +1,14 @@
-﻿// ConsoleApplication1.cpp : Этот файл содержит функцию "main". Здесь начинается и заканчивается выполнение программы.
-//
-
-#include <iostream>
+﻿#include <iostream>
+#include "Matrix.h"
+using namespace std;
 
 int main()
 {
+	int size;
+	cin >> size;
+
+	Matrix <int> matrix(size);
+	matrix.Print();
     std::cout << "Hello World!\n";
 }
 

@@ -9,6 +9,9 @@ int main()
 	cin >> size;
 
 	Matrix <int> matrix(size);
+	matrix.Print("matrix one");
+	matrix.GetValue(2, 3);
+	matrix.SetValue(2, 2, 333);
 	matrix.Print();
 	Matrix <float> matrix_f(size);
 	matrix_f.Print();

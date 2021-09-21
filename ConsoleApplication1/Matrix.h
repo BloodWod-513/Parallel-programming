@@ -14,7 +14,9 @@ public:
 	Matrix(int size);
 	~Matrix();
 
-	void Print();
+	void Print(const char* matrixName = "");
+	void SetValue(int rowIndex, int columnIndex, T value);
+	T GetValue(int rowIndex, int columnIndex);
 };
 
 #endif // !MATRIX_H

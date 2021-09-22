@@ -11,13 +11,19 @@ Vector<T>::Vector(int size, bool zeroVector)
 	this->size = size;
 	vector = new T[size];
 	for (int i = 0; i < size; i++)
-		vector[i] = zerovector ? 0 : GetRand(0.f, 100.f);
+		vector[i] = zeroVector ? 0 : GetRand(0.f, 100.f);
 }
 
 template <typename T>
 Vector<T>::~Vector()
 {
 	delete[] vector;
+}
+
+template<typename T>
+int Vector<T>::GetSize()
+{
+	return size;
 }
 
 template <typename T>
@@ -42,5 +48,5 @@ void Vector<T>::Print()
 	std::cout << "Vector: ";
 	for (int i = 0; i < size; i++)
 		std::cout << vector[i] << ' ';
-	std::cout << std::endl;
+	std::cout << std::endl << std::endl;
 }

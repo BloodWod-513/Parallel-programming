@@ -50,17 +50,17 @@ public:
 		return *this;
 	}
 
-	Matrix operator*(const Matrix& _matrix)
+	Matrix operator*(Matrix& _matrix)
 	{
-		Matrix <T> resultMatrix(size, true);
+		Matrix<T> resultMatrix(size, true);
 
 		for (int i = 0; i < size; i++)
 		{
 			for (int j = 0; j < size; j++)
 			{
-				resultMatrix.matrix[i][j] = 0;
 				for (int k = 0; k < size; k++)
-					resultMatrix.matrix[i][j] += matrix[i][k] * _matrix.matrix[k][j];
+					resultMatrix.matrix[i][j] += matrix[i][k] * _matrix.GetValue(k, j);
+					//resultMatrix.matrix[i][j] += matrix[i][k] * _matrix.matrix[k][j];
 			}
 		}
 		return resultMatrix;
@@ -69,6 +69,7 @@ public:
 	void Print(const char* matrixName = "");
 	void SetValue(int rowIndex, int columnIndex, T value);
 	T GetValue(int rowIndex, int columnIndex);
+	int GetSize();
 };
 
 #endif // !MATRIX_H

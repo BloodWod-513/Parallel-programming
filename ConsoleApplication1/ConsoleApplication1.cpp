@@ -10,7 +10,11 @@ int main()
 
 	Matrix <int> matrix(size);
 	matrix.Print("matrix one");
-
+	for (int i = 0; i < size; i++)
+	{
+		for (int j = 0; j < size; j++)
+			matrix.SetValue(i, j, 2);
+	}
 	Matrix <int> matrixTest(size);
 	matrixTest = matrix;
 	matrixTest.Print("matrix test");
@@ -21,11 +25,15 @@ int main()
 	matrix.Print("matrix test * test");
 
 	Vector <int> vector(size);
+	for (int i = 0; i < size; i++)
+	{
+		vector.SetValue(i, 2);
+	}
 	vector.Print();
 
-	Vector <int> testVector(size);
-	testVector.Print();
-	testVector = vector;
-	testVector.Print();
+	vector = matrix * vector;
+	vector.Print();
+	vector = vector * test;
+	vector.Print();
     std::cout << "Hello World!\n";
 }

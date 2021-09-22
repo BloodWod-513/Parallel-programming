@@ -30,6 +30,12 @@ Matrix<T>::~Matrix()
 	delete[] matrix;
 }
 
+template<typename T>
+int Matrix<T>::GetSize()
+{
+	return size;
+}
+
 template <typename T>
 T Matrix<T>::GetValue(int rowIndex, int columnIndex)
 {

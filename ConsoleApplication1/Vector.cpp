@@ -6,12 +6,12 @@ template class Vector<float>;
 template class Vector<double>;
 
 template <typename T>
-Vector<T>::Vector(int size)
+Vector<T>::Vector(int size, bool zeroVector)
 {
 	this->size = size;
 	vector = new T[size];
 	for (int i = 0; i < size; i++)
-		vector[i] = GetRand(0.f, 100.f);
+		vector[i] = zerovector ? 0 : GetRand(0.f, 100.f);
 }
 
 template <typename T>

@@ -11,7 +11,7 @@ private:
 	T* vector;
 
 public:
-	Vector(int size);
+	Vector(int size, bool zeroVector = false);
 	~Vector();
 	Vector(const Vector& _vector)
 	{

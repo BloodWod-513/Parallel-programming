@@ -9,9 +9,9 @@ typename std::conditional<
 	std::is_floating_point<T>::value,
 	std::uniform_real_distribution<T>,
 	typename std::conditional<
-	std::is_integral<T>::value,
-	std::uniform_int_distribution<T>,
-	void
+		std::is_integral<T>::value,
+		std::uniform_int_distribution<T>,
+		void
 	>::type
 >::type;
 

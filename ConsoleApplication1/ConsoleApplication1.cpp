@@ -33,6 +33,10 @@ int main()
 	vector_f.Print();
 	Vector <double> vector_d(size);
 	vector_d.Print();
+	Vector <int> testVector(size);
+	testVector.Print();
+	testVector = vector;
+	testVector.Print();
     std::cout << "Hello World!\n";
 }
 

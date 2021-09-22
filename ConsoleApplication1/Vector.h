@@ -13,6 +13,23 @@ private:
 public:
 	Vector(int size);
 	~Vector();
+	Vector(const Vector& _vector)
+	{
+		size = _vector.size;
+		vector = new T[size];
+		for (int i = 0; i < size; i++)
+			vector[i] = _vector.vector[i];
+	}
+
+	Vector operator=(const Vector& _vector)
+	{
+		delete[] vector;
+		size = _vector.size;
+		vector = new T[size];
+		for (int i = 0; i < size; i++)
+			vector[i] = _vector.vector[i];
+		return *this;
+	}
 
 	void Print();
 	T GetValue(int index);

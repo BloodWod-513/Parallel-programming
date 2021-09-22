@@ -6,18 +6,17 @@ template class Matrix<float>;
 template class Matrix<double>;
 
 template <typename T>
-Matrix<T>::Matrix(int size)
+Matrix<T>::Matrix(int size, bool zeroMatrix)
 {
 	this->size = size;
-	matrix = new T* [size];
+	matrix = new T * [size];
 
 	for (int i = 0; i < size; i++)
 		matrix[i] = new T[size];
-
 	for (int i = 0; i < size; i++)
 	{
 		for (int j = 0; j < size; j++)
-			matrix[i][j] = GetRand(0.f, 100.f);
+			matrix[i][j] = zeroMatrix ? 0 : GetRand(0.f, 100.f);
 	}
 }
 

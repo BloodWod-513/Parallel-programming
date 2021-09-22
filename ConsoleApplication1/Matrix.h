@@ -11,11 +11,12 @@ private:
 	T** matrix;
 
 public:
-	Matrix(int size);
+	Matrix(int size, bool zeroMatrix = false);
+	~Matrix();
 	Matrix(const Matrix& _matrix)
 	{
 		size = _matrix.size;
-		matrix = new T * [size];
+		matrix = new T *[size];
 
 		for (int i = 0; i < size; i++)
 			matrix[i] = new T[size];
@@ -26,7 +27,7 @@ public:
 				matrix[i][j] = _matrix.matrix[i][j];
 		}
 	}
-	~Matrix();
+
 	Matrix operator=(const Matrix& _matrix)
 	{
 		for (int i = 0; i < size; ++i)
@@ -47,6 +48,22 @@ public:
 				matrix[i][j] =_matrix.matrix[i][j];
 		}
 		return *this;
+	}
+
+	Matrix operator*(const Matrix& _matrix)
+	{
+		Matrix <T> resultMatrix(size, true);
+
+		for (int i = 0; i < size; i++)
+		{
+			for (int j = 0; j < size; j++)
+			{
+				resultMatrix.matrix[i][j] = 0;
+				for (int k = 0; k < size; k++)
+					resultMatrix.matrix[i][j] += matrix[i][k] * _matrix.matrix[k][j];
+			}
+		}
+		return resultMatrix;
 	}
 
 	void Print(const char* matrixName = "");

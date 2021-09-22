@@ -10,43 +10,22 @@ int main()
 
 	Matrix <int> matrix(size);
 	matrix.Print("matrix one");
-	matrix.GetValue(2, 2);
-	matrix.SetValue(2, 2, 333);
-	matrix.Print();
-	Matrix <float> matrix_f(size);
-	matrix_f.Print();
-	Matrix <double> matrix_d(size);
-	matrix_d.Print();
+
 	Matrix <int> matrixTest(size);
-	matrixTest.Print();
 	matrixTest = matrix;
-	matrixTest.Print();
+	matrixTest.Print("matrix test");
+
 	Matrix <int> test = matrix;
-	test.Print();
+	test.Print("test");
+	matrix = matrixTest * test;
+	matrix.Print("matrix test * test");
 
 	Vector <int> vector(size);
 	vector.Print();
-	vector.GetValue(0);
-	vector.SetValue(0, 1);
-	vector.Print();
-	Vector <float> vector_f(size);
-	vector_f.Print();
-	Vector <double> vector_d(size);
-	vector_d.Print();
+
 	Vector <int> testVector(size);
 	testVector.Print();
 	testVector = vector;
 	testVector.Print();
     std::cout << "Hello World!\n";
 }
-
-// Запуск программы: CTRL+F5 или меню "Отладка" > "Запуск без отладки"
-// Отладка программы: F5 или меню "Отладка" > "Запустить отладку"
-
-// Советы по началу работы 
-//   1. В окне обозревателя решений можно добавлять файлы и управлять ими.
-//   2. В окне Team Explorer можно подключиться к системе управления версиями.
-//   3. В окне "Выходные данные" можно просматривать выходные данные сборки и другие сообщения.
-//   4. В окне "Список ошибок" можно просматривать ошибки.
-//   5. Последовательно выберите пункты меню "Проект" > "Добавить новый элемент", чтобы создать файлы кода, или "Проект" > "Добавить существующий элемент", чтобы добавить в проект существующие файлы кода.
-//   6. Чтобы снова открыть этот проект позже, выберите пункты меню "Файл" > "Открыть" > "Проект" и выберите SLN-файл.

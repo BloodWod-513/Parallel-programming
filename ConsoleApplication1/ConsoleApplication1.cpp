@@ -26,6 +26,9 @@ int main()
 
 	Vector <int> vector(size);
 	vector.Print();
+	vector.GetValue(0);
+	vector.SetValue(0, 1);
+	vector.Print();
 	Vector <float> vector_f(size);
 	vector_f.Print();
 	Vector <double> vector_d(size);

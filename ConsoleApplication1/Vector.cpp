@@ -1,12 +1,11 @@
 #include "Vector.h"
 #include <iostream>
-#include "Random.h"
 
 template class Vector<int>;
 template class Vector<float>;
 template class Vector<double>;
 
-template<typename T>
+template <typename T>
 Vector<T>::Vector(int size)
 {
 	this->size = size;
@@ -15,13 +14,29 @@ Vector<T>::Vector(int size)
 		vector[i] = GetRand(0.f, 100.f);
 }
 
-template<typename T>
+template <typename T>
 Vector<T>::~Vector()
 {
 	delete[] vector;
 }
 
-template<typename T>
+template <typename T>
+T Vector<T>::GetValue(int index)
+{
+	if (index < 0 || index >= size)
+		throw std::invalid_argument("received wrong index");
+	return vector[index];
+}
+
+template <typename T>
+void Vector<T>::SetValue(int index, T value)
+{
+	if (index < 0 || index >= size)
+		throw std::invalid_argument("received wrong index");
+	vector[index] = value;
+}
+
+template <typename T>
 void Vector<T>::Print()
 {
 	std::cout << "Vector: ";

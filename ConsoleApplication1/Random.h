@@ -21,7 +21,7 @@ T GetRand(T begin, T end)
 	static thread_local std::mt19937_64 mt(std::random_device{}());
 	uniform_distribution<T> distribution(begin, end);
 
-	return int(distribution(mt) * 100) / 100.0;
+	return int(distribution(mt) * 100 + 0.5) / 100.0;
 }
 
 #endif // !RANDOM_H

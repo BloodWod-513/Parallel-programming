@@ -52,6 +52,8 @@ public:
 	}
 
 	void Print();
+	void BubbleSort(bool ascending = true);
+
 	void SetValue(int index, T value);
 	T GetValue(int index);
 	int GetSize();

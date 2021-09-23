@@ -35,5 +35,10 @@ int main()
 	vector.Print();
 	vector = vector * test;
 	vector.Print();
+
+	Vector <int> vectorSort(size);
+	vectorSort.Print();
+	vectorSort.BubbleSort();
+	vectorSort.Print();
     std::cout << "Hello World!\n";
 }

@@ -50,3 +50,29 @@ void Vector<T>::Print()
 		std::cout << vector[i] << ' ';
 	std::cout << std::endl << std::endl;
 }
+
+template <typename T>
+void Vector<T>::BubbleSort(bool ascending)
+{
+	T temp;
+	for (int i = 0; i < size - 1; i++)
+	{
+		for (int j = i + 1; j < size; j++)
+		{
+			if (ascending)
+			{
+				if (vector[i] <= vector[j])
+					continue;
+			}
+			else
+			{
+				if (vector[i] >= vector[j])
+					continue;
+			}
+
+			temp = vector[i];
+			vector[i] = vector[j];
+			vector[j] = temp;
+		}
+	}
+}

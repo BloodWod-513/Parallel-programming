@@ -10,6 +10,8 @@ int main()
 
 	Matrix <int> matrix(size);
 	matrix.Print("matrix one");
+	matrix.BubbleSort();
+	matrix.Print();
 	for (int i = 0; i < size; i++)
 	{
 		for (int j = 0; j < size; j++)

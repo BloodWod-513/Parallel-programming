@@ -64,3 +64,34 @@ void Matrix<T>::Print(const char* matrixName)
 	}
 	std::cout << std::endl;
 }
+
+template <typename T>
+void Matrix<T>::BubbleSort(bool ascending)
+{
+	T temp;
+	for (int i = 0; i < size; i++)
+	{
+		for (int j = 0; j < size; j++)
+		{
+			for (int h = 0; h < size; h++)
+			{
+				for (int k = 0; k < size; k++)
+				{
+					if (ascending)
+					{
+						if (matrix[i][j] >= matrix[h][k])
+							continue;
+					}
+					else
+					{
+						if (matrix[i][j] <= matrix[h][k])
+							continue;
+					}
+					temp = matrix[i][j];
+					matrix[i][j] = matrix[h][k];
+					matrix[h][k] = temp;
+				}
+			}
+		}
+	}
+}

@@ -52,8 +52,8 @@ public:
 	}
 
 	void Print();
-	T GetValue(int index);
 	void SetValue(int index, T value);
+	T GetValue(int index);
 	int GetSize();
 };
 template <typename T>

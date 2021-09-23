@@ -60,7 +60,6 @@ public:
 			{
 				for (int k = 0; k < size; k++)
 					resultMatrix.matrix[i][j] += matrix[i][k] * _matrix.GetValue(k, j);
-					//resultMatrix.matrix[i][j] += matrix[i][k] * _matrix.matrix[k][j];
 			}
 		}
 		return resultMatrix;

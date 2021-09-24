@@ -67,6 +67,7 @@ public:
 
 	void Print(const char* matrixName = "");
 	void BubbleSort(bool ascending = true);
+	void QuickSort();
 
 	void SetValue(int rowIndex, int columnIndex, T value);
 	T GetValue(int rowIndex, int columnIndex);

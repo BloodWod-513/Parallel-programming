@@ -10,7 +10,8 @@ int main()
 
 	Matrix <int> matrix(size);
 	matrix.Print("matrix one");
-	matrix.BubbleSort();
+	matrix.QuickSort();
+	//matrix.BubbleSort();
 	matrix.Print();
 	for (int i = 0; i < size; i++)
 	{

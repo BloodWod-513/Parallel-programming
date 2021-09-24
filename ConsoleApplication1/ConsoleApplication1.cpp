@@ -40,7 +40,8 @@ int main()
 
 	Vector <int> vectorSort(size);
 	vectorSort.Print();
-	vectorSort.BubbleSort();
+	//vectorSort.BubbleSort();
+	vectorSort.QuickSort(0, size - 1, true);
 	vectorSort.Print();
     std::cout << "Hello World!\n";
 }

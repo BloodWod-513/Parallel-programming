@@ -76,3 +76,45 @@ void Vector<T>::BubbleSort(bool ascending)
 		}
 	}
 }
+
+template <typename T>
+int Vector<T>::Partition(int begin, int end, bool ascending)
+{
+	int index = begin;
+	T pivot = vector[end];
+	T temp;
+
+	for (int i = begin; i < end; i++)
+	{
+		if (ascending)
+		{
+			if (vector[i] >= pivot)
+				continue;
+		}
+		else
+		{
+			if (vector[i] <= pivot)
+				continue;
+		}
+		temp = vector[i];
+		vector[i] = vector[index];
+		vector[index] = temp;
+		index++;
+	}
+	temp = vector[end];
+	vector[end] = vector[index];
+	vector[index] = temp;
+
+	return index;
+}
+
+template <typename T>
+void Vector<T>::QuickSort(int begin, int end, bool ascending)
+{
+	if (begin < end)
+	{
+		int index = Partition(begin, end, ascending);
+		QuickSort(begin, index - 1, ascending);
+		QuickSort(index + 1, end, ascending);
+	}
+}

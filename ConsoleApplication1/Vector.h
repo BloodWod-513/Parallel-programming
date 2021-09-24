@@ -14,7 +14,7 @@ class Vector
 private:
 	int size;
 	T* vector;
-
+	int Partition(int begin, int end, bool ascending);
 public:
 	Vector(int size, bool zeroVector = false);
 	~Vector();
@@ -53,6 +53,7 @@ public:
 
 	void Print();
 	void BubbleSort(bool ascending = true);
+	void QuickSort(int begin, int end, bool ascending = true);
 
 	void SetValue(int index, T value);
 	T GetValue(int index);

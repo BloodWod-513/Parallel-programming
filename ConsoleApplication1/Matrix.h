@@ -2,6 +2,10 @@
 #define MATRIX_H
 
 #include "Random.h"
+#include "Vector.h"
+
+template <class T>
+class Vector;
 
 template <class T>
 class Matrix
@@ -63,6 +67,21 @@ public:
 			}
 		}
 		return resultMatrix;
+	}
+
+	Vector<T> operator*(Vector<T>& vector)
+	{
+		Vector<T> resultVector(vector.GetSize(), true);
+
+		for (int i = 0; i < size; i++)
+		{
+			for (int j = 0; j < size; j++)
+			{
+				T value = resultVector.GetValue(i) + matrix[i][j] * vector.GetValue(j);
+				resultVector.SetValue(i, value);
+			}
+		}
+		return resultVector;
 	}
 
 	void Print(const char* matrixName = "");

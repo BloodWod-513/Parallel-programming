@@ -5,7 +5,7 @@ using namespace std;
 
 int main()
 {
-	int size;
+	int size = 0;
 	cin >> size;
 
 	Matrix <int> matrix(size);

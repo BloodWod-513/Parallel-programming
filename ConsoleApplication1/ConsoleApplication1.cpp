@@ -1,7 +1,15 @@
-﻿#include <iostream>
+﻿#define _USE_MATH_DEFINES
+
+#include <iostream>
 #include "Matrix.h"
 #include "Vector.h"
+#include <math.h>
+
 using namespace std;
+
+double RectangleMethod(int number);
+double TrapezoidMethod(int number);
+double func(double x);
 
 int main()
 {
@@ -44,5 +52,43 @@ int main()
 	//vectorSort.BubbleSort();
 	vectorSort.QuickSort(0, size - 1, true);
 	vectorSort.Print();
-    std::cout << "Hello World!\n";
+    cout << "Hello World!\n";
+
+	int number;
+	cout << endl;
+	cout << "Number: ";
+	cin >> number;
+	double result = RectangleMethod(number);
+	cout << "Result rectangle: " << result << endl;
+	result = TrapezoidMethod(number);
+	cout << "Result trapezoid: " << result << endl;
+}
+
+double RectangleMethod(int number)
+{
+	double start = 0, end = M_PI, result = 0, x = 0, step = end / number;
+	for (int i = 0; i < number; i++)
+	{
+		x = step / 2 + step * i;
+		result += func(x);
+	}
+	return result * step;
+}
+
+double TrapezoidMethod(int number)
+{
+	double start = 0, end = M_PI, result = 0, x = 0, step = end / number;
+	for (int i = 0; i < number; i++)
+	{
+		x = step * i;
+		result += func(x);
+		x = step * (i + 1);
+		result += func(x);
+	}
+	return step / 2 * result;
+}
+
+double func(double x)
+{
+	return (8 * pow(x, 2) + 16 * x + 17) * cos(4 * x);
 }

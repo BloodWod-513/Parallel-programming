@@ -16,52 +16,80 @@ int main()
 	int size = 0;
 	cin >> size;
 
+	cout.precision(8);
+
 	Matrix <int> matrix(size);
-	matrix.Print("matrix one");
+	matrix.Print("matrix");
 	matrix.QuickSort();
-	//matrix.BubbleSort();
+	clock_t timer = clock();
+	cout << "Estimated time of matrix quick sort: " << fixed << static_cast<double>(clock() - timer) / CLOCKS_PER_SEC << " sec" << endl;
 	matrix.Print();
-	for (int i = 0; i < size; i++)
+
+	Matrix <int> matrixTest(size);
+	matrixTest.Print("matrixTest");
+	timer = clock();
+	matrixTest.BubbleSort();
+	cout << "Estimated time of matrix bubble sort: " << fixed << static_cast<double>(clock() - timer) / CLOCKS_PER_SEC << " sec" << endl;
+	matrixTest.Print();
+
+	//matrix.BubbleSort(); Estimated time of multiplication by vector:
+	/*for (int i = 0; i < size; i++)
 	{
 		for (int j = 0; j < size; j++)
 			matrix.SetValue(i, j, 2);
-	}
-	Matrix <int> matrixTest(size);
+	}*/
+	/*Matrix <int> matrixTest(size);
 	matrixTest = matrix;
-	matrixTest.Print("matrix test");
+	matrixTest.Print("matrix test");*/
 
 	Matrix <int> test = matrix;
 	test.Print("test");
-	matrix = matrixTest * test;
-	matrix.Print("matrix test * test");
+	timer = clock();
+	matrix = matrix * test;
+	cout << "Estimated time multiplying on matrix: " << fixed << static_cast<double>(clock() - timer) / CLOCKS_PER_SEC << " sec" << endl;
+	matrix.Print("matrix * test");
 
 	Vector <int> vector(size);
-	for (int i = 0; i < size; i++)
-	{
-		vector.SetValue(i, 2);
-	}
+	//for (int i = 0; i < size; i++)
+	//{
+	//	vector.SetValue(i, 2);
+	//}
 	vector.Print();
 
+	timer = clock();
 	vector = matrix * vector;
+	cout << "Estimated time multiplying on vector: " << fixed << static_cast<double>(clock() - timer) / CLOCKS_PER_SEC << " sec" << endl;
 	vector.Print();
-	vector = vector * test;
+
+	timer = clock();
+	vector.BubbleSort();
+	cout << "Estimated time of vector bubble sort: " << fixed << static_cast<double>(clock() - timer) / CLOCKS_PER_SEC << " sec" << endl;
 	vector.Print();
+
+	/*vector = vector * test;
+	vector.Print();*/
 
 	Vector <int> vectorSort(size);
 	vectorSort.Print();
 	//vectorSort.BubbleSort();
+	timer = clock();
 	vectorSort.QuickSort(0, size - 1, true);
+	cout << "Estimated time of vector quick sort: " << fixed << static_cast<double>(clock() - timer) / CLOCKS_PER_SEC << " sec" << endl;
 	vectorSort.Print();
-    cout << "Hello World!\n";
 
 	int number;
 	cout << endl;
 	cout << "Number: ";
 	cin >> number;
+	cout << endl;
+	timer = clock();
 	double result = RectangleMethod(number);
-	cout << "Result rectangle: " << result << endl;
+	cout << "Estimated time of rectangle method: " << fixed << static_cast<double>(clock() - timer) / CLOCKS_PER_SEC << " sec" << endl;
+	cout << "Result rectangle: " << result << endl << endl;
+	timer = clock();
 	result = TrapezoidMethod(number);
-	cout << "Result trapezoid: " << result << endl;
+	cout << "Estimated time of vector method: " << fixed << static_cast<double>(clock() - timer) / CLOCKS_PER_SEC << " sec" << endl;
+	cout << "Result trapezoid: " << result << endl << endl;
 }
 
 double RectangleMethod(int number)
